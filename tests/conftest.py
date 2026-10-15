@@ -1,4 +1,3 @@
-"""Fixture de driver independiente por test y captura si falla."""
 from pathlib import Path
 
 import pytest
@@ -18,7 +17,6 @@ def driver():
 
 @pytest.fixture
 def driver_logueado(driver):
-    """Cada test arranca logueado, sin compartir estado."""
     login(driver)
     return driver
 

@@ -1,45 +1,39 @@
-# Pre-entrega Automatización QA — Sauce Demo
+# Pre-entrega automation testing
 
-Automatización de flujos básicos en [saucedemo.com](https://www.saucedemo.com) con Selenium WebDriver y Pytest (login, catálogo y carrito).
+Tests automaticos de saucedemo.com con Python, Selenium y Pytest.
 
-## Tecnologías
+## Tecnologias
 
-- Python 3
+- Python
 - Pytest
 - Selenium WebDriver
-- pytest-html (reporte)
+- pytest-html
 
 ## Estructura
 
-```
-tests/     casos de prueba
-utils/     driver, esperas y locators
-datos/     credenciales JSON
-reports/   HTML y capturas ante fallo
-```
+- tests/ : casos de prueba
+- utils/ : funciones auxiliares
+- datos/ : usuario y password
+- reports/ : reporte html
 
-## Instalación
+## Instalacion
 
-```bash
+```
 python -m venv .venv
-.venv\Scripts\activate
+source .venv/Scripts/activate
 pip install -r requirements.txt
 ```
 
-Chrome instalado (Selenium Manager descarga el driver).
+En Windows (PowerShell): `.venv\Scripts\activate`
 
-## Ejecutar pruebas
+## Como correr los tests
 
-```bash
+```
 pytest -v --html=reports/reporte.html --self-contained-html
 ```
 
-También: `pytest tests/ -v`
+## Tests
 
-## Casos
-
-1. Login `standard_user` / `secret_sauce` → `/inventory.html`, Products y Swag Labs.
-2. Título, al menos un producto (nombre/precio), menú y filtros.
-3. Agregar primer producto, badge = 1, ítem en el carrito.
-
-Cada test usa su propio navegador (independientes). Si un test falla se guarda `reports/<nombre>.png`.
+- Login con standard_user / secret_sauce
+- Catalogo (titulo, productos, menu y filtro)
+- Agregar un producto al carrito

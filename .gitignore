@@ -3,6 +3,4 @@ __pycache__/
 *.pyc
 .venv/
 venv/
-reports/*.html
 reports/*.png
-!reports/.gitkeep

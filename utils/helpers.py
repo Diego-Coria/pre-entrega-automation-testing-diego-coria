@@ -1,4 +1,3 @@
-"""Funciones auxiliares: driver, login y lecturas de página."""
 import json
 from pathlib import Path
 
@@ -21,7 +20,6 @@ def cargar_datos():
 def crear_driver():
     opts = Options()
     opts.add_argument("--start-maximized")
-    opts.add_argument("--disable-notifications")
     return webdriver.Chrome(options=opts)
 
 
@@ -34,7 +32,6 @@ def esperar_clickable(driver, locator, timeout=TIMEOUT):
 
 
 def login(driver, usuario=None, password=None):
-    """Abre Sauce Demo e inicia sesión con espera explícita."""
     datos = cargar_datos()
     driver.get(datos["url"])
     esperar_visible(driver, USER).send_keys(usuario or datos["usuario"])
@@ -44,7 +41,6 @@ def login(driver, usuario=None, password=None):
 
 
 def primer_producto(driver):
-    """Devuelve nombre y precio del primer ítem visible."""
     esperar_visible(driver, ITEMS)
     nombre = driver.find_element(*ITEM_NAME).text
     precio = driver.find_element(*ITEM_PRICE).text
